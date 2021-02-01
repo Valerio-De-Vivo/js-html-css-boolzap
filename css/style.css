@@ -42,7 +42,6 @@ img {
 
 .container-left {
   width: 40%;
-  border-right: 1px solid grey;
 }
 .container-right {
   width: 60%;
@@ -54,13 +53,15 @@ img {
   background-color: #eaeaea;
   display: flex;
   align-items: center;
+  padding-right: 10px;
 }
 
 .nav-left {
   border-right: 0.4px solid grey;
 }
 
-.nav-left img {
+.nav-left img,
+.nav-right img {
   height: 80%;
   padding: 0 10px;
 }
@@ -72,7 +73,8 @@ img {
   padding-left: 10px;
 }
 
-.nav-left i {
+.nav-left i,
+.nav-right i {
   font-size: 25px;
   padding: 0 10px;
   color: grey;
@@ -181,4 +183,60 @@ img {
   flex-grow: 1;
   padding: 10px 0;
   font-size: 1.3em;
+}
+
+/*. RIGHT  */
+
+.nav-name {
+  flex-grow: 1;
+}
+
+.nav-name p:first-child {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.nav-name p:last-child {
+  color: grey;
+  font-size: 15px;
+}
+
+.chat-area {
+  height: calc(100% - 80px - 90px);
+  overflow-y: scroll;
+  background-image: url(img/mine.jpg);
+}
+
+.chat-input {
+  background-color: #f3eeea;
+  height: 90px;
+  display: flex;
+}
+
+.emoticons,
+.audio {
+  height: 100%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #6b7376;
+}
+
+.write-message {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.write-message input {
+  width: 100%;
+  height: 80%;
+  font-size: 1.5em;
+}
+
+.write-message input:focus {
+  outline: 0;
+  border: transparent;
 }
