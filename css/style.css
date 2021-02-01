@@ -78,6 +78,8 @@ img {
   color: grey;
 }
 
+/*. NOTIFICHE  */
+
 .avvisi {
   height: 90px;
   background-color: #8edafc;
@@ -113,4 +115,70 @@ img {
   font-weight: 300;
   color: grey;
   text-decoration: underline;
+}
+
+/*. SEARCH BAR  */
+
+.search-bar {
+  background-color: #fafafa;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  width: 90%;
+  height: 90%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search i {
+  color: #b6b9bb;
+  width: 10%;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.search input {
+  width: 90%;
+  height: 100%;
+  border: 0;
+  font-size: 18px;
+  color: #b6b9bb;
+}
+
+.search input:focus {
+  border: 0;
+  outline: 0;
+}
+
+/*. CHAT  */
+
+.chat {
+  height: calc(100% - 240px);
+  padding-left: 10px;
+  overflow-y: auto;
+}
+
+.user-chat {
+  display: flex;
+  padding: 10px;
+}
+
+.user-img {
+  width: 20%;
+}
+
+.user-img img {
+  width: 80%;
+}
+
+.user-name {
+  flex-grow: 1;
+  padding: 10px 0;
+  font-size: 1.3em;
 }
