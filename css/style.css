@@ -1,0 +1,116 @@
+/*. GENERAL  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.back {
+  height: 100vh;
+  background-color: #d9dbd5;
+  position: relative;
+}
+
+.back-top {
+  background-color: #009688;
+  height: 200px;
+}
+
+.container {
+  background-color: #fff;
+  width: 1270px;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+
+.container-left,
+.container-right {
+  height: 100%;
+}
+
+/*. LEFT  */
+
+.container-left {
+  width: 40%;
+  border-right: 1px solid grey;
+}
+.container-right {
+  width: 60%;
+}
+
+.nav-left,
+.nav-right {
+  height: 80px;
+  background-color: #eaeaea;
+  display: flex;
+  align-items: center;
+}
+
+.nav-left {
+  border-right: 0.4px solid grey;
+}
+
+.nav-left img {
+  height: 80%;
+  padding: 0 10px;
+}
+
+.nav-left p {
+  flex-grow: 1;
+  font-weight: 500;
+  font-size: 1.3em;
+  padding-left: 10px;
+}
+
+.nav-left i {
+  font-size: 25px;
+  padding: 0 10px;
+  color: grey;
+}
+
+.avvisi {
+  height: 90px;
+  background-color: #8edafc;
+  display: flex;
+}
+
+.avvisi .bells {
+  width: 20%;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avvisi .bells i {
+  background-color: #fff;
+  color: #8edafc;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.bells-text {
+  padding: 20px 0;
+}
+
+.bells-text p {
+  padding: 5px 0;
+  font-weight: 500;
+}
+
+.bells-text p:last-child {
+  padding: 0;
+  font-weight: 300;
+  color: grey;
+  text-decoration: underline;
+}
