@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzap</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,15 +17,19 @@
     </div>
 
     <!--.. CONTENITORE -->
-    <div class="container">
+    <div id="app" class="container">
 
         <!--. LEFT BAR  -->
         <div class="container-left">
 
             <!-- NAV  -->
             <div class="nav-left">
-                <img src="css/img/avatar_6.jpg" alt="">
-                <p>Nome Utente</p>
+                <img v-for="(contatto,index) in contatti" v-if="contatto.nome == 'Valerio De Vivo'" :src="contatto.avatar" alt="">
+
+                <p  v-for="(contatto,index) in contatti" v-if="contatto.nome == 'Valerio De Vivo'">
+                    {{contatto.nome}}
+                </p>
+
                 <i class="fas fa-circle-notch"></i>
                 <i class="fas fa-comment-alt"></i>
                 <i class="fas fa-ellipsis-v"></i>
@@ -53,46 +58,18 @@
             <!-- CHAT  -->
 
             <div class="chat">
-                <div class="user-chat">
+
+                <div v-if="contatto.nome != 'Valerio De Vivo'" v-for="(contatto,index) in contatti" @click="attivo(index)" class="user-chat">
                     <div class="user-img">
-                        <img src="css/img/avatar_2.jpg" alt="av2">
+                        <img :src="contatto.avatar" alt="av2">
                     </div>
     
                     <div class="user-name">
-                        <p>Michele</p>
+                        <p > {{contatto.nome}} </p>
                     </div>
                 </div>
-                <div class="user-chat">
-                    <div class="user-img">
-                        <img src="css/img/avatar_3.jpg" alt="av2">
-                    </div>
-    
-                    <div class="user-name">
-                        <p>Fabio</p>
-                    </div>
 
-                </div>
-
-                <div class="user-chat">
-                    <div class="user-img">
-                        <img src="css/img/avatar_4.jpg" alt="av2">
-                    </div>
-    
-                    <div class="user-name">
-                        <p>Samuele</p>
-                    </div>
-
-                </div>
-
-                <div class="user-chat">
-                    <div class="user-img">
-                        <img src="css/img/avatar_5.jpg" alt="av2">
-                    </div>
-    
-                    <div class="user-name">
-                        <p>Pippo</p>
-                    </div>
-                </div>
+                
             </div>
 
         </div>
@@ -100,11 +77,11 @@
         <!--. RIGHT BAR  -->
             <div class="container-right">
                 <div class="nav-right">
-                    <img src="css/img/avatar_1.jpg" alt="">
+                    <img :src="active.avatar" alt="">
 
                     <div class="nav-name">
-                        <p>Pluto</p>
-                        <p>Ultimo accesso alle</p>
+                        <p> {{active.nome}} </p>
+                        <p v-if="active.nome != '' ">Ultimo accesso alle</p>
                     </div>
 
                     <i class="fas fa-search"></i>
@@ -135,5 +112,7 @@
     </div>
     
     
+
+    <script src="js/script.js"></script>
 </body>
 </html>
