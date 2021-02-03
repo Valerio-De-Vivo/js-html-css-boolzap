@@ -105,7 +105,8 @@ var app = new Vue({
             nome: '',
             avatar:''
         },
-        write:''
+        write:'',
+        search:'',
     },
     methods: {
 
@@ -121,24 +122,28 @@ var app = new Vue({
 
                 if (element.nome == this.active.nome) {
                     moment.locale();         
-                    let data = moment().format('l,LT');
+                    let data = moment().format('l,HH:m:ss');
 
                     //.. INVIO 
                     element.messages.push({
                         date: data,
                         text: this.write,
                         status: 'received'
-                        });
+                    });
+
                     
                     //.. RISPOSTA OK 
                     setTimeout(() => element.messages.push({
                         date: data,
                         text: 'ok',
-                        status: 'sent'}) , 1500);
+                        status: 'sent'
+                    }) , 2000);
                 }
 
             });
             this.write = '';
-        }
+        },
+
+        
     }
 }); 

@@ -54,7 +54,7 @@
             <div class="search-bar">
                 <div class="search">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="search" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
             </div>
 
@@ -62,13 +62,15 @@
 
             <div class="chat">
 
-                <div v-if="contatto.nome != 'Valerio De Vivo'" v-for="(contatto,index) in contatti" @click="attivo(index)" class="user-chat">
-                    <div class="user-img">
-                        <img :src="contatto.avatar" alt="av2">
-                    </div>
-    
-                    <div class="user-name">
-                        <p > {{contatto.nome}} </p>
+                <div v-if="contatto.nome != 'Valerio De Vivo'" v-for="(contatto,index) in contatti" @click="attivo(index)" >
+                    <div v-if="contatto.nome.includes(search)" class="user-chat">
+                        <div class="user-img">
+                            <img :src="contatto.avatar" alt="av2">
+                        </div>
+        
+                        <div class="user-name">
+                            <p > {{contatto.nome}} </p>
+                        </div>
                     </div>
                 </div>
 
@@ -84,7 +86,7 @@
 
                     <div class="nav-name">
                         <p> {{active.nome}} </p>
-                        <p v-if="active.nome != '' ">Ultimo accesso alle</p>
+                        <p v-if="active.nome != '' ">Attivo</p>
                     </div>
 
                     <i class="fas fa-search"></i>
