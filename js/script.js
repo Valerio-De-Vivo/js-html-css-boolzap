@@ -107,6 +107,7 @@ var app = new Vue({
         },
         write:'',
         search:'',
+        searchUp: (search.charAt(0).toUpperCase()) + (search.substring(1));
     },
     methods: {
 
