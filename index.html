@@ -90,7 +90,20 @@
                 </div>
 
                 <div class="chat-area">
-                    
+                    <div v-for=" contact in contatti">
+
+                        <div v-if="contact.nome == active.nome" v-for="mess in contact.messages" >
+                            <div v-if="mess.status == 'sent' " class="message in">
+                                {{mess.text}} <div class="date"> {{mess.date}} </div>
+                            </div>
+    
+                            <div v-if="mess.status == 'received' " class="message out">
+                                {{mess.text}} <div class="date"> {{mess.date}} </div>
+                            </div>
+    
+                        </div>
+                        
+                    </div>
                 </div>
 
                 <div class="chat-input">
