@@ -4,6 +4,7 @@ var app = new Vue({
         console.log(this.contatti);
     },
     data: {
+        
         contatti: [
             {
                 nome: 'Michele',
@@ -103,13 +104,41 @@ var app = new Vue({
         active: {
             nome: '',
             avatar:''
-        }
+        },
+        write:''
     },
     methods: {
+
+        //. user attivo 
         attivo(i) {
             this.active.nome = this.contatti[i].nome;
             this.active.avatar = this.contatti[i].avatar;
-            
+        },
+
+        //. Invio messaggio 
+        writeMex(){
+            this.contatti.forEach(element => {
+
+                if (element.nome == this.active.nome) {
+                    moment.locale();         
+                    let data = moment().format('l,LT');
+
+                    //.. INVIO 
+                    element.messages.push({
+                        date: data,
+                        text: this.write,
+                        status: 'received'
+                        });
+                    
+                    //.. RISPOSTA OK 
+                    setTimeout(() => element.messages.push({
+                        date: data,
+                        text: 'ok',
+                        status: 'sent'}) , 1500);
+                }
+
+            });
+            this.write = '';
         }
     }
 }); 
