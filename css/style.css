@@ -269,7 +269,7 @@ img {
 .message {
   max-width: 50%;
   word-wrap: break-word;
-  padding: 10px 35px;
+  padding: 10px 25px;
   margin: 15px 30px;
   position: relative;
   font-size: 20px;
@@ -294,4 +294,27 @@ img {
   font-size: 10px;
   color: grey;
   padding-top: 5px;
+}
+
+.info {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  font-size: 12px;
+  color: grey;
+}
+
+.info-option {
+  background-color: #fff;
+  font-size: 80%;
+  display: none;
+  padding: 10px;
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  color: grey;
+}
+
+.active {
+  display: inline-block;
 }

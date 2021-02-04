@@ -101,13 +101,31 @@
                 <div class="chat-area">
                     <div v-for=" contact in contatti">
 
-                        <div v-if="contact.nome == active.nome" v-for="mess in contact.messages" >
+                        <div v-if="contact.nome == active.nome" v-for="(mess,index) in contact.messages" >
+
+                            <!-- .MESS IN  -->
                             <div v-if="mess.status == 'sent' " class="message in">
                                 {{mess.text}} <div class="date"> {{mess.date}} </div>
+                                <div @click="hoverinfo(index)" class="info">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div :class="(index == indice) ? hover : '' " class="info-option">
+                                    <p @click="infor(index)">Informazioni {{info}}</p>
+                                    <p @click="contact.messages.splice(index, 1)"> Elimina messaggio</p>
+                                </div>
                             </div>
-    
-                            <div v-if="mess.status == 'received' " class="message out">
+                            
+                            <!-- .MESS OUT  -->
+
+                            <div v-if="mess.status == 'received' "  class="message out">
                                 {{mess.text}} <div class="date"> {{mess.date}} </div>
+                                <div @click="hoverinfo(index)" class="info">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div :class="(index == indice) ? hover : '' " class="info-option">
+                                    <p @click="infor(index)">Informazioni {{info}} </p>
+                                    <p @click="contact.messages.splice(index, 1)"> Elimina messaggio</p>
+                                </div>
                             </div>
     
                         </div>

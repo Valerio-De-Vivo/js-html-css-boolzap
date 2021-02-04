@@ -29,6 +29,48 @@ var app = new Vue({
                     ],
             },
             {
+                nome: 'Berny',
+                avatar:'css/img/avatar_8.jpg',
+                messages: [
+                    {
+                    date: '28/03/2020 10:10:40',
+                    text: 'Usciamo',
+                    status: 'sent'
+                    },
+                    {
+                    date: '28/03/2020 10:20:10',
+                    text: 'Si andiamo al parco',
+                    status: 'received'
+                    },
+                    {
+                    date: '28/03/2020 16:15:22',
+                    text: 'ok alle 3',
+                    status: 'sent'
+                    }
+                    ],
+            },
+            {
+                nome: 'Angelo',
+                avatar:'css/img/avatar_7.jpg',
+                messages: [
+                    {
+                    date: '28/03/2020 10:10:40',
+                    text: 'Sushi??',
+                    status: 'sent'
+                    },
+                    {
+                    date: '28/03/2020 10:20:10',
+                    text: 'Si andiamo a pranzo',
+                    status: 'received'
+                    },
+                    {
+                    date: '28/03/2020 16:15:22',
+                    text: 'ok a dopo!',
+                    status: 'sent'
+                    }
+                    ],
+            },
+            {
                 nome: 'Fabio',
                 avatar:'css/img/avatar_2.jpg',
                 messages: [
@@ -108,6 +150,9 @@ var app = new Vue({
         },
         write:'',
         search:'',
+        hover: '',
+        indice: '',
+        info: ''
     },
     methods: {
 
@@ -136,7 +181,7 @@ var app = new Vue({
                     //.. RISPOSTA OK 
                     setTimeout(() => element.messages.push({
                         date: data,
-                        text: 'ok',
+                        text: 'si',
                         status: 'sent'
                     }) , 2000);
                 }
@@ -144,6 +189,15 @@ var app = new Vue({
             });
             this.write = '';
         },
+
+        //. INFO 
+
+        hoverinfo(i) {
+            (this.hover == 'active') ? this.hover = '' : this.hover = 'active';
+            console.log(i);
+            this.indice = i;
+        },
+
 
         
     }
