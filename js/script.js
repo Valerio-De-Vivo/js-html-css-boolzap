@@ -148,17 +148,21 @@ var app = new Vue({
             nome: 'Michele' ,
             avatar:'css/img/avatar_1.jpg'
         },
+        contatore: 0,
         write:'',
         search:'',
         hover: '',
-        indice: ''
+        indice: '',
+        stascrivendo:'',
+        sostituisci: 'mostra'
     },
     methods: {
 
         //. user attivo 
         attivo(i) {
-            this.active.nome = this.contatti[i].nome;
-            this.active.avatar = this.contatti[i].avatar;
+            this.contatore = i;
+            this.active.nome = this.contatti[this.contatore].nome;
+            this.active.avatar = this.contatti[this.contatore].avatar;
         },
 
         //. Invio messaggio 
@@ -176,6 +180,9 @@ var app = new Vue({
                         status: 'received'
                     });
 
+                    this.stascrivendo = 'sta scrivendo';
+                    this.sostituisci= 'oscura';
+
                     
                     //.. RISPOSTA OK 
                     setTimeout(() => element.messages.push({
@@ -183,6 +190,15 @@ var app = new Vue({
                         text: 'si',
                         status: 'sent'
                     }) , 2000);
+
+                    setTimeout(()=>{
+                        this.stascrivendo = '';
+                        this.sostituisci= 'mostra';
+                     },2000);
+
+                    
+
+                    
                 }
 
             });
@@ -196,6 +212,13 @@ var app = new Vue({
             console.log(i);
             this.indice = i;
         },
+
+        cancellamess(i) {
+            console.log(i);
+            this.contatti[this.contatore].messages.splice(i,1);
+            this.hover = '';
+        }
+
 
         
     }

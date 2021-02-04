@@ -318,4 +318,13 @@ img {
 
 .active {
   display: inline-block;
+  z-index: 5;
+}
+
+.mostra {
+  display: block;
+}
+
+.oscura {
+  display: none;
 }

@@ -27,10 +27,10 @@
 
             <!-- NAV  -->
             <div class="nav-left">
-                <img v-for="(contatto,index) in contatti" v-if="contatto.nome == 'Valerio De Vivo'" :src="contatto.avatar" alt="">
+                <img :src="contatti[0].avatar" alt="">
 
-                <p  v-for="(contatto,index) in contatti" v-if="contatto.nome == 'Valerio De Vivo'">
-                    {{contatto.nome}}
+                <p>
+                    Valerio
                 </p>
 
                 <i class="fas fa-circle-notch"></i>
@@ -72,7 +72,10 @@
                             <p > {{contatto.nome}} </p>
                             <p class="last"> 
                                 <span class="lastdate">{{contatto.messages.slice(-1)[0].date}}</span>
-                                {{contatto.messages.slice(-1)[0].text}} 
+                                <span :class="sostituisci">
+                                    {{contatto.messages.slice(-1)[0].text}}
+                                </span>
+                                {{stascrivendo}}
                             </p>
                         </div>
                     </div>
@@ -99,32 +102,29 @@
                 </div>
 
                 <div id="chat" class="chat-area">
-                    <div v-for=" contact in contatti">
-
-                        <div v-if="contact.nome == active.nome" v-for="(mess,index) in contact.messages" >
-
+                    <div v-for=" (dati,index) in contatti[contatore].messages">
+                        <div>
                             <!-- .MESS IN  -->
-                            <div v-if="mess.status == 'sent' " class="message in">
-                                {{mess.text}} <div class="date"> {{mess.date}} </div>
-                                <div @click="hoverinfo(index)" class="info">
+                            <div v-if="dati.status == 'sent' " class="message in">
+                                {{dati.text}} <div class="date"> {{dati.date}} </div>
+                                <div @click="hoverinfo(index)" class="info" >
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
-                                <div :class="(index == indice) ? hover : '' " class="info-option">
-                                    
-                                    <p @click="contact.messages.splice(index, 1)"> Elimina messaggio</p>
+                                <div class="info-option" :class="(index == indice) ? hover : '' ">
+                                    <p @click="cancellamess(index)"> Elimina messaggio</p>
                                 </div>
                             </div>
                             
                             <!-- .MESS OUT  -->
 
-                            <div v-if="mess.status == 'received' "  class="message out">
-                                {{mess.text}} <div class="date"> {{mess.date}} </div>
+                            <div v-if="dati.status == 'received' "  class="message out">
+                                {{dati.text}} <div class="date"> {{dati.date}} </div>
                                 <div @click="hoverinfo(index)" class="info">
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
-                                <div :class="(index == indice) ? hover : '' " class="info-option">
+                                <div class="info-option" :class="(index == indice) ? hover : '' ">
                                     
-                                    <p @click="contact.messages.splice(index, 1)"> Elimina messaggio</p>
+                                    <p @click="cancellamess(index)"> Elimina messaggio</p>
                                 </div>
                             </div>
     
