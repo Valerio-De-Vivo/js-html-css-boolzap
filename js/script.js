@@ -3,6 +3,7 @@ var app = new Vue({
     mounted: function () {
         console.log(this.contatti);
         console.log(this.contatti[0].nome);
+        
     },
     data: {
         
@@ -153,8 +154,7 @@ var app = new Vue({
         search:'',
         hover: '',
         indice: '',
-        stascrivendo:'',
-        sostituisci: 'mostra'
+        sostituisci: 'mostra',
     },
     methods: {
 
@@ -163,6 +163,8 @@ var app = new Vue({
             this.contatore = i;
             this.active.nome = this.contatti[this.contatore].nome;
             this.active.avatar = this.contatti[this.contatore].avatar;
+            console.log(this.contatore);
+            console.log(i);
         },
 
         //. Invio messaggio 
@@ -180,7 +182,6 @@ var app = new Vue({
                         status: 'received'
                     });
 
-                    this.stascrivendo = 'sta scrivendo';
                     this.sostituisci= 'oscura';
 
                     
@@ -192,13 +193,9 @@ var app = new Vue({
                     }) , 2000);
 
                     setTimeout(()=>{
-                        this.stascrivendo = '';
                         this.sostituisci= 'mostra';
                      },2000);
 
-                    
-
-                    
                 }
 
             });

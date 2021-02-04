@@ -72,10 +72,21 @@
                             <p > {{contatto.nome}} </p>
                             <p class="last"> 
                                 <span class="lastdate">{{contatto.messages.slice(-1)[0].date}}</span>
-                                <span :class="sostituisci">
+
+                                <span :class="(index != contatore) ? sostituisci : '' ">
+                                    <span v-if="sostituisci == 'mostra' ">
+                                    </span>
+
+                                    <span style="color: black;" v-else>
+                                        sta scrivendo . . .
+                                    </span>
+                                </span>
+
+                                <span :class="(index == contatore) ? sostituisci : '' ">
                                     {{contatto.messages.slice(-1)[0].text}}
                                 </span>
-                                {{stascrivendo}}
+                                
+                                
                             </p>
                         </div>
                     </div>
