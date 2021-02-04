@@ -2,6 +2,7 @@ var app = new Vue({
     el: '#app',
     mounted: function () {
         console.log(this.contatti);
+        console.log(this.contatti[0].nome);
     },
     data: {
         
@@ -102,12 +103,11 @@ var app = new Vue({
             },
         ],
         active: {
-            nome: '',
-            avatar:''
+            nome: 'Michele' ,
+            avatar:'css/img/avatar_1.jpg'
         },
         write:'',
         search:'',
-        searchUp: (search.charAt(0).toUpperCase()) + (search.substring(1));
     },
     methods: {
 

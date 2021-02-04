@@ -63,13 +63,17 @@
             <div class="chat">
 
                 <div v-if="contatto.nome != 'Valerio De Vivo'" v-for="(contatto,index) in contatti" @click="attivo(index)" >
-                    <div v-if="contatto.nome.includes(search)" class="user-chat">
+                    <div v-if="contatto.nome.includes(search.charAt(0).toUpperCase() + search.slice(1))" class="user-chat">
                         <div class="user-img">
                             <img :src="contatto.avatar" alt="av2">
                         </div>
         
                         <div class="user-name">
                             <p > {{contatto.nome}} </p>
+                            <p class="last"> 
+                                <span class="lastdate">{{contatto.messages.slice(-1)[0].date}}</span>
+                                {{contatto.messages.slice(-1)[0].text}} 
+                            </p>
                         </div>
                     </div>
                 </div>

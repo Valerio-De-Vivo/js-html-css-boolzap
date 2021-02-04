@@ -57,7 +57,7 @@ img {
 }
 
 .nav-left {
-  border-right: 0.4px solid grey;
+  border-right: 0.4px solid lightgrey;
 }
 
 .nav-left img,
@@ -172,7 +172,7 @@ img {
 }
 
 .user-chat:hover {
-  background-color: rgb(185, 216, 255);
+  background-color: rgb(203, 226, 255);
 }
 
 .user-img {
@@ -187,6 +187,21 @@ img {
   flex-grow: 1;
   padding: 10px 0;
   font-size: 1.3em;
+  position: relative;
+  border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+.last {
+  font-size: 80%;
+  color: grey;
+  margin-top: 5px;
+}
+
+.lastdate {
+  font-size: 70%;
+  position: absolute;
+  top: 10px;
+  right: 3px;
 }
 
 /*. RIGHT  */
@@ -254,8 +269,8 @@ img {
 .message {
   max-width: 50%;
   word-wrap: break-word;
-  padding: 10px 15px;
-  margin: 15px 10px;
+  padding: 10px 35px;
+  margin: 15px 30px;
   position: relative;
   font-size: 20px;
 }
