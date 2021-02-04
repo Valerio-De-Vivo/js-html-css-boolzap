@@ -151,8 +151,7 @@ var app = new Vue({
         write:'',
         search:'',
         hover: '',
-        indice: '',
-        info: ''
+        indice: ''
     },
     methods: {
 
@@ -197,7 +196,6 @@ var app = new Vue({
             console.log(i);
             this.indice = i;
         },
-
 
         
     }
